@@ -1,3 +1,11 @@
+<?php
+    include_once('DAO/ContatoDAO.php');
+    
+    include_once('conexaodb.php');
+    $contatoDAO = new ContatoDAO();
+    $contatoDAO->findAll($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +38,15 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>João</td>
+                    <?php foreach($contatoDAO as $contatos): ?>
+                    <td><?=$contatos['nome']?></td>
                     <td>(11) 99999-9999</td>
                     <td>joaozinho@gmail.com</td>
                     <td>
                         <a href="editar.php" class="btn btn-warning">Editar</a>
                         <a href="excluir.php" class="btn btn-danger">Excluir</a>
                     </td>
+                    <?php endforeach;?>
                 </tr>
             </tbody>
         </table>

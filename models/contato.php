@@ -1,5 +1,5 @@
 <?php
-    include_once('../conexaodb.php');
+    // include_once('../conexaodb.php');
     Class Contato{
         
         private $nome;
