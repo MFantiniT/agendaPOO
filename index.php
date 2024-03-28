@@ -1,9 +1,9 @@
 <?php
-    include_once('DAO/ContatoDAO.php');
-    
-    include_once('conexaodb.php');
+    include_once(__DIR__ .  '/DAO/ContatoDAO.php');
+    include_once(__DIR__ . '/conexaodb.php');
+    echo __DIR__;
     $contatoDAO = new ContatoDAO();
-    $contatoDAO->findAll($conn);
+    $result = $contatoDAO->findAll($conn);
 ?>
 
 <!DOCTYPE html>
@@ -37,17 +37,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <?php foreach($contatoDAO as $contatos): ?>
-                    <td><?=$contatos['nome']?></td>
-                    <td>(11) 99999-9999</td>
-                    <td>joaozinho@gmail.com</td>
-                    <td>
-                        <a href="editar.php" class="btn btn-warning">Editar</a>
-                        <a href="excluir.php" class="btn btn-danger">Excluir</a>
-                    </td>
-                    <?php endforeach;?>
-                </tr>
+                <?php foreach($result as $contato): ?>
+                    <tr>
+                        <td><?=$contato['nome']?></td>
+                        <td><?=$contato['telefone']?></td>
+                        <td><?=$contato['email']?></td>
+                        <td>
+                            <a href="editar.php?id=<?= $contato['id'] ?>" class="btn btn-warning">Editar</a>
+                            <a href="excluir.php?id=<?= $contato['id'] ?>" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
             </tbody>
         </table>
     </div>

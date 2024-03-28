@@ -1,5 +1,5 @@
 <?php
-    include_once('../models/Contato.php');
+    include_once(__DIR__ . '/../models/Contato.php');
 
     Class ContatoDAO implements I_contatoDAO{
         public function findAll(PDO $conn)
