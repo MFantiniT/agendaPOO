@@ -1,7 +1,7 @@
 <?php
     include_once(__DIR__ .  '/DAO/ContatoDAO.php');
     include_once(__DIR__ . '/conexaodb.php');
-    echo __DIR__;
+    
     $contatoDAO = new ContatoDAO();
     $result = $contatoDAO->findAll($conn);
 ?>
