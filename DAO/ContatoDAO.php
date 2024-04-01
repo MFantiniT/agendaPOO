@@ -19,13 +19,15 @@
             $stmt->execute();
             header('Location: ' . 'index.php');
         }
-        public function update(Contato $contato, $conn)
+        public function update(Contato $contato, $id, $conn)
         {
             $sql = "UPDATE contatos SET nome = :nome, telefone = :telefone, email = :email WHERE id=:id";
             $stmt = $conn->prepare($sql);
             $stmt->bindparam(':nome', $contato->getNome());
             $stmt->bindParam(':telefone', $contato->getTelefone());
             $stmt->bindParam(':email', $contato->getEmail());
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
             header('Location: ' . 'index.php');
         }
         public function delete($id, $conn)

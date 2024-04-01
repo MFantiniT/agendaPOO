@@ -1,5 +1,5 @@
 <?php
-    // include_once('../conexaodb.php');
+
     Class Contato{
         
         private $nome;
@@ -39,7 +39,7 @@
     interface I_contatoDAO{
         public function findAll(PDO $conn);
         public function create(Contato $contato, $conn);
-        public function update(Contato $contato, $conn);
+        public function update(Contato $contato, $id, $conn);
         public function delete($id, $conn);
 
     }
