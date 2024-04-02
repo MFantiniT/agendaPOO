@@ -12,20 +12,26 @@
         public function create(Contato $contato, $conn)
         {
             $sql = "INSERT INTO CONTATOS(nome, telefone, email) VALUES (:nome, :telefone, :email)";
+            $nome = $contato->getNome();
+            $telefone = $contato->getTelefone();
+            $email = $contato->getEmail();
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':nome', $contato->getNome());
-            $stmt->bindParam(':telefone', $contato->getTelefone());
-            $stmt->bindParam(':email', $contato->getEmail());
+            $stmt->bindparam(':nome', $nome);
+            $stmt->bindParam(':telefone', $telefone);
+            $stmt->bindParam(':email', $email);
             $stmt->execute();
             header('Location: ' . 'index.php');
         }
         public function update(Contato $contato, $id, $conn)
         {
             $sql = "UPDATE contatos SET nome = :nome, telefone = :telefone, email = :email WHERE id=:id";
+            $nome = $contato->getNome();
+            $telefone = $contato->getTelefone();
+            $email = $contato->getEmail();
             $stmt = $conn->prepare($sql);
-            $stmt->bindparam(':nome', $contato->getNome());
-            $stmt->bindParam(':telefone', $contato->getTelefone());
-            $stmt->bindParam(':email', $contato->getEmail());
+            $stmt->bindparam(':nome', $nome);
+            $stmt->bindParam(':telefone', $telefone);
+            $stmt->bindParam(':email', $email);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             header('Location: ' . 'index.php');

@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Formulário</h1>
-        <form action="editar_action.php?<?= $_GET['id']?>" method="post">
+        <form action="editar_action.php?id=<?= $_GET['id']?>" method="post">
             <div class="form-group row">
                 <label for="nome" class="col-sm-2 col-form-label">Nome</label>
                 <div class="col-sm-10">
