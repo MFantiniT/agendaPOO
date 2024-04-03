@@ -14,19 +14,19 @@
             <div class="form-group row">
                 <label for="nome" class="col-sm-2 col-form-label">Nome</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nome" name="nome">
+                    <input type="text" class="form-control" id="nome" name="nome" value="<?= $_GET['nome'] ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="telefone" class="col-sm-2 col-form-label">telefone</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="telefone" name="telefone">
+                    <input type="text" class="form-control" id="telefone" name="telefone" value="<?= $_GET['telefone'] ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">email</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" name="email">
+                    <input type="text" class="form-control" id="email" name="email" value="<?= $_GET['email'] ?>">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Confirmar</button>
