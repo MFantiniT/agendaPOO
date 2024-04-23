@@ -36,7 +36,7 @@
                         <td><?=$contato['email']?></td>
                         <td>
                             <a href="editar.php?id=<?= $contato['id'] ?>&nome=<?= $contato['nome'] ?>&telefone=<?= $contato['telefone'] ?>&email=<?= $contato['email'] ?>" class="btn btn-warning">Editar</a>
-                            <a href="excluir.php?id=<?= $contato['id'] ?>" class="btn btn-danger">Excluir</a>
+                            <a href="index.php?action=delete&id=<?= $contato['id'] ?>" class="btn btn-danger">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach;?>
