@@ -1,34 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php
+    include_once(__DIR__ .  '/models/Contato.php');
+    include_once(__DIR__ .  '/models/DAO/ContatoDAO.php');
+    include_once(__DIR__ .  '/controller/AgendaController.php');
+    include_once(__DIR__ . '/conexaodb.php');
 
-<head>
-    <meta charset="UTF-8">
-    <title>Formulário</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+$controller = new AgendaController($conn);
 
-<body>
-    <div class="container">
-        <h1>Formulário</h1>
-        <form action="adicionar_action.php" method="post">
-            <div class="form-group row">
-                <label for="nome" class="col-sm-2 col-form-label">Nome</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nome" name="nome">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="telefone" class="col-sm-2 col-form-label">telefone</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="telefone" name="telefone">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">email</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" name="email">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Confirmar</button>
-        </form>
-    </div>
+// Um simples roteamento baseado em 'action' que vem da URL
+if (isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
+    call_user_func([$controller, $_GET['action']]);
+} else {
+    $controller->create(); // Método padrão se nenhuma ação específica for fornecida
+}

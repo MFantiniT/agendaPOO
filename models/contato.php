@@ -5,7 +5,7 @@
         private $nome;
         private $telefone;
         private $email;
-        private $conn;
+        
     
         public function getNome(){
             return $this->nome;
@@ -25,14 +25,12 @@
         public function setEmail($email){
             $this->email = $email;
         }
-        public function getConn(){
-            return $this->conn;
-        }
-        public function __construct($nome, $telefone, $email, $conn){
+        
+        public function __construct($nome, $telefone, $email){
             $this->nome = $nome;
             $this->telefone = $telefone;
             $this->email = $email;
-            $this->conn = $conn;
+            
         }
 
     }
