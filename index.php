@@ -14,5 +14,5 @@ if (isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
 
 ?>
 
-?>
+
 
